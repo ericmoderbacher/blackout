@@ -1,11 +1,3 @@
---
--- Created by IntelliJ IDEA.
--- User: eric
--- Date: 5/23/2021
--- Time: 12:49 PM
--- To change this template use File | Settings | File Templates.
---
-
 local board =
 {
     n_rows, n_cols, board, g_local
@@ -22,22 +14,16 @@ function board.toggle(x,y)
 end
 function board.press(x,y)
     print("press")
-    -- apply the kernal
-    --north
     print("y test " .. (y+1))
     print("y test 2 " .. y+1)
     local dumbThing = y + 1
 
-    board.toggle(x,y + 1)
---
---    --south
-    board.toggle(x,(y-1))
---    --east
-    board.toggle((x+1),y)
---    --west
-    board.toggle((x-1),y)
-    --center
-    board.toggle(x,y)
+    -- apply the plus-shaped kernel: center plus four orthogonal neighbors
+    board.toggle(x, y + 1)
+    board.toggle(x, y - 1)
+    board.toggle(x + 1, y)
+    board.toggle(x - 1, y)
+    board.toggle(x, y)
 end
 
 function board:construct(g)
@@ -68,15 +54,6 @@ function board:construct(g)
         end
 
         board.grid_redraw()
-
---        if (z == 1) then
---            if (is_active(x, y)) then
---                state.board.current[x][y] = config.GRID.LEVEL.DEAD
---            else
---                state.board.current[x][y] = config.GRID.LEVEL.ALIVE
---            end
---        end
---        grid_redraw()
     end
 end
 

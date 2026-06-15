@@ -23,7 +23,7 @@ local board = include("lib/board")
 
 function init()
   print("test 1")
-  screen.aa(1) -- enables anti-aliasing (sorry but I forget what aa stands for)
+  screen.aa(1)
   --setup main menu
   pages = UI.Pages.new(1, 3)
   tabs = UI.Tabs.new(1, {"s", "Start"})
